@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActionData } from './../../utils/ActionData';
 import parser from './../../utils/parser';
-import { execute, sanitizeHTMLString } from './../../utils/Helpers';
+import { execute, sanitizeHTMLString, downloadAsFile } from './../../utils/Helpers';
 import ActionBar from './../ActionBar';
 import Button from './../Button';
 import MessageBox from './../MessageBox';
@@ -49,18 +49,7 @@ export default class App extends Component {
     }
 
     onDownloadFileClick() {
-        let text = document.querySelector('.result-container textarea').value;
-
-        let blob = new Blob([text], {type: 'application/octet-stream'});
-        let blobURL = window.URL.createObjectURL(blob);
-        let tempLink = document.createElement('a');
-        tempLink.href = blobURL;
-        tempLink.setAttribute('download', "README.md");
-        tempLink.setAttribute('target', '_blank');
-        document.body.appendChild(tempLink);
-        tempLink.click();
-        document.body.removeChild(tempLink);
-
+        downloadAsFile(document.querySelector('.result-container textarea').value, 'README.md');
     }
 
     onCopyClick() {
