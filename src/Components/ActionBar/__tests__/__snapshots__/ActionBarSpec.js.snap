@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionBar renders correctly 1`] = `
+<div
+  className="actionbar-container"
+>
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Heading 1"
+    type="button"
+    value="H1"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Heading 2"
+    type="button"
+    value="H2"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Heading 3"
+    type="button"
+    value="H3"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Bold"
+    type="button"
+    value="B"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Italic"
+    type="button"
+    value="I"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Unordered List"
+    type="button"
+    value="UL"
+  />
+  <input
+    className="button action"
+    name={undefined}
+    onClick={[Function]}
+    title="Ordered List"
+    type="button"
+    value="OL"
+  />
+</div>
+`;

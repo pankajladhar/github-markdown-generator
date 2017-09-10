@@ -1,0 +1,93 @@
+{
+	var tagFunctions = {}
+    tagFunctions.h1= function(cons){
+    	return '# ' + cons
+    }
+    tagFunctions.h2= function(cons){
+    	return '## ' + cons
+    }
+    tagFunctions.h3= function(cons){
+    	return '### ' + cons
+    }
+    tagFunctions.b= function(cons){
+    	return '**'+cons+'**'
+    }
+    tagFunctions.i= function(cons){
+    	return '_'+cons+'_'
+    }
+    tagFunctions.a= function(cons,attr){
+    	return '['+cons+']('+attr+')'
+    }
+    tagFunctions.img= function(cons,attr){
+    	return '!['+cons+']('+attr+')'
+    }
+    tagFunctions.div= function(cons){
+    	return '\n'+ cons
+    }
+    tagFunctions.ul= function(cons){
+    	return cons.replace(/\$/gi, "*")
+    }
+    tagFunctions.ol= function(cons){
+    	return cons.replace(/\$/gi, "1.")
+    }
+    tagFunctions.li= function(cons){
+    	return '$ '+ cons + '\n'
+    }
+    tagFunctions.pre= function(cons){
+    	return '```javascript ' + cons +'```'
+    }
+    tagFunctions.TEXT = function(x){ return x;}
+    tagFunctions.NOTAG = function(cons){
+    	return '\n'+ cons
+    }
+    var mdify = function(param){
+    	return param.content.length > 0 ? 
+        	tagFunctions[param.startTag](param.content, param.attribute) : ""
+    }
+}
+	
+start
+  = tagALL:tags* {return tagALL.join("\n")}
+                                
+tags
+  = _ tagExpr:tagExpr _ {
+  		return mdify(tagExpr)
+    }
+    
+tagExpr "tagExpr"
+  = fullTag: "<" startName:tagName  attribute:attribute*">" _ tagContents:(tagContent*) _ "</" endName:tagName ">"
+    {
+    	if(startName!==endName){
+        	throw new Error("tag!!!! is not matching")
+    	}
+        return {
+        	startTag:startName,
+            attribute:attribute || null,
+            content:tagContents.map(mdify).join('')
+        };
+    }
+    /noTag
+
+
+noTag = content:content {return { startTag: "NOTAG", content:content.join("") } }
+
+tagContent
+ = content:content {return { startTag: "TEXT", content:content.join("") } }
+ / tagExpr
+
+attribute "attribute"
+	= attributes : attributesType "=" attrContent:content 
+    { return attrContent.join('').replace(/"/g, '')}
+
+attributesType "attributesType"
+	= attributesType:[ href|alt ]* { return attributesType }
+    
+tagName "tagName"
+ = text:[a-z0-9]+ {return text.join("")}
+ 
+content "content"
+ = [a-zA-Z0-9{}()=\?_\/\\:\!\-\;\$\#\&\*\@\|\\.\\,\n\\'\\" ]+
+ 
+_ "whitespace"
+ = [ \t\n\r]* {return ""}
+ 

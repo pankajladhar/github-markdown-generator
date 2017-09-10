@@ -2,8 +2,87 @@
 
 exports[`Button renders correctly 1`] = `
 <div>
-  <div>
-    Button
+  <div
+    className="container"
+  >
+    <div
+      className="editor-container"
+    >
+      <div
+        className="actionbar-container"
+      >
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Heading 1"
+          type="button"
+          value="H1"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Heading 2"
+          type="button"
+          value="H2"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Heading 3"
+          type="button"
+          value="H3"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Bold"
+          type="button"
+          value="B"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Italic"
+          type="button"
+          value="I"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Unordered List"
+          type="button"
+          value="UL"
+        />
+        <input
+          className="button action"
+          name={undefined}
+          onClick={[Function]}
+          title="Ordered List"
+          type="button"
+          value="OL"
+        />
+      </div>
+      <div
+        className="editor markdown-body"
+        contentEditable="true"
+        id="editor"
+        onInput={undefined}
+      />
+    </div>
+    <div
+      className="result-container"
+    >
+      <textarea
+        className="editor1"
+        readOnly={true}
+      />
+    </div>
   </div>
 </div>
 `;

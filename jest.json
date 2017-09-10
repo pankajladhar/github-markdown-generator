@@ -16,5 +16,17 @@
     "transformIgnorePatterns": [
       "node_modules/(?!responsiveseasonswebcomponents)"
     ],
-    "collectCoverageFrom" : ["src/**/*.{js,jsx}"]
+    "collectCoverageFrom" : [
+      "src/**/*.{js,jsx}",
+      "!src/index.js", 
+      "!src/utils/**/*.{js,jsx}"
+      ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
 }

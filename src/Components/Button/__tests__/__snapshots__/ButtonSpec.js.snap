@@ -1,7 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
-<div>
-  Button
-</div>
+exports[`Button renders correctly when only all props are provided 1`] = `
+<input
+  className="button sample"
+  name="name"
+  onClick={[Function]}
+  title="Button"
+  type="button"
+  value="Button"
+/>
+`;
+
+exports[`Button renders correctly when only required props are provided 1`] = `
+<input
+  className="button"
+  name={undefined}
+  onClick={[Function]}
+  title="Button"
+  type="button"
+  value="Button"
+/>
 `;
