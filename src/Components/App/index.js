@@ -6,6 +6,7 @@ import ActionBar from './../ActionBar';
 import Button from './../Button';
 import MessageBox from './../MessageBox';
 
+
 import './App.scss';
 
 export default class App extends Component {
@@ -20,6 +21,7 @@ export default class App extends Component {
         this.convertIntoMarkdown = this.convertIntoMarkdown.bind(this);
         this.handleMesaageBoxClose = this.handleMesaageBoxClose.bind(this);
         this.onCopyClick = this.onCopyClick.bind(this);
+        this.onDownloadFileClick = this.onDownloadFileClick.bind(this);
     }
 
     componentDidMount() {
@@ -41,22 +43,44 @@ export default class App extends Component {
         }
     }
 
-    handleMesaageBoxClose(){
+    handleMesaageBoxClose() {
         this.setState({ showMessageBox: false })
     }
 
+    onDownloadFileClick() {
+        let text = document.querySelector('.result-container textarea').value;
+
+        let blob = new Blob([text], {type: 'application/octet-stream'});
+        let blobURL = window.URL.createObjectURL(blob);
+        let tempLink = document.createElement('a');
+        tempLink.href = blobURL;
+        tempLink.setAttribute('download', "README.md");
+        tempLink.setAttribute('target', '_blank');
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+    }
+
     onCopyClick() {
-        let x = document.querySelector('.result-container textarea');
-        x.select();
+        document.querySelector('.result-container textarea').select();
         try {
             var successful = document.execCommand('copy');
-            var msg = successful ? 'successful' : 'unsuccessful';
-            this.setState({
-                showMessageBox: true,
-                type:  successful ? "success" : "error",
-                title : 'Copying text command was ' + msg
-            })
-
+            if(successful){
+                this.setState({
+                    showMessageBox: true,
+                    type:  successful ? "success" : "error",
+                    title : 'Copied Successfully',
+                })
+            }
+            else{
+                this.setState({
+                    showMessageBox: true,
+                    type: "error",
+                    title : "Oops, unable to copy"
+                })    
+            }
+            
         } catch (err) {
             this.setState({
                 showMessageBox: true,
@@ -79,13 +103,22 @@ export default class App extends Component {
                         </div>
                     </div>
                     <div className="result-container">
-                        <Button
-                            icon="fa-copy"
-                            className="action"
-                            title="Copy Generated Markdown"
-                            value="Copy Generated Markdown"
-                            handleClick={this.onCopyClick}
-                        />
+                        <div className="btn-wrapper">
+                            <Button
+                                icon="fa-copy"
+                                className="action"
+                                title="Copy Generated Markdown"
+                                value="Copy Generated Markdown"
+                                handleClick={this.onCopyClick}
+                            />
+                            <Button
+                                icon="fa-download"
+                                className="action"
+                                title="Download as README.md file"
+                                value="Download as README.md file"
+                                handleClick={this.onDownloadFileClick}
+                            />
+                        </div>
                         <textarea readOnly></textarea>
                     </div>
                     <MessageBox 
