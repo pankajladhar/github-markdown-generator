@@ -5,9 +5,10 @@
     "main": "src/index.js",
     "repository": "git@github.com:pankajladhar/github-markdown-tool.git",
     "scripts": {
+      "clean": "rimraf ./build/*",
       "dev": "webpack-dashboard -t -- webpack-dev-server",
       "prod": "npm run clean && NODE_ENV=production webpack -p",
-      "clean": "rimraf ./build/*"
+      "test": "jest --config jest.json"
     },
     "author": "Pankaj ladhar <ladharpankaj@gmail.com>",
     "license": "MIT",
@@ -24,10 +25,16 @@
       "babel-core": "^6.13.2",
       "babel-loader": "^6.2.5",
       "babel-preset-es2015": "^6.13.2",
+      "babel-jest": "^21.0.0",
       "babel-preset-react": "^6.11.1",
       "css-loader": "^0.28.4",
       "extract-text-webpack-plugin": "^2.1.2",
+      "jest": "^21.0.1",
+      "jest-cli": "^21.0.1",
       "file-loader": "^0.11.2",
+      "object-assign": "^4.1.1",
+      "postcss-flexbugs-fixes": "3.2.0",
+      "postcss-loader": "^2.0.6",
       "html-webpack-plugin": "^2.29.0",
       "image-webpack-loader": "^3.3.1",
       "node-sass": "^4.5.3",

@@ -1,0 +1,58 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+      "stylelint-scss"
+    ],
+    "rules": {
+      "at-rule-name-space-after": "always",
+      "at-rule-empty-line-before": [
+        "always", {
+          "ignoreAtRules": [ "import", "else", "return", "include" ],
+          "except": ["first-nested"]
+        }
+      ],
+      "at-rule-no-unknown": [
+        true, {
+          "ignoreAtRules": ["mixin", "function", "for",  "return", "if", "else","include", "at-root" ]
+        }
+      ],
+      "block-opening-brace-space-before": "always",
+      "block-closing-brace-newline-after": [
+        "always", {
+          "ignoreAtRules": [ "if", "else" ]
+        }
+      ],
+      "comment-empty-line-before": [
+        "always", {
+          "ignore": ["after-comment", "stylelint-commands"]
+        }
+      ],
+      "declaration-empty-line-before": "never",
+      "function-name-case": [
+        "lower", {
+          "ignoreFunctions": ["calculateRem", "checkColorLightness"]
+        }
+      ],
+      "number-leading-zero": "never",
+      "no-missing-end-of-source-newline": true,
+      "no-eol-whitespace": true,
+      "no-empty-source": true,
+      "property-no-unknown": [
+        true, {
+          "ignoreProperties": ["appearance"]
+        }
+      ],
+      "rule-empty-line-before": [
+        "always", {
+          "except": ["first-nested"]
+        }
+      ],
+  
+      "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+      "scss/at-else-closing-brace-space-after": "always-intermediate",
+      "scss/at-else-empty-line-before": "never",
+      "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+      "scss/at-if-closing-brace-space-after": "always-intermediate"
+    }
+  
+  }

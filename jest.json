@@ -1,0 +1,20 @@
+{
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|_jest_|node_modules|scripts)[/\\\\]"
+    ],
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>/utils/jest/polyfills.js"
+    ],
+    "testURL": "http://localhost",
+    "transform": {
+        "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(css|scss)$": "<rootDir>/utils/jest/styleMock.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/utils/jest/fileMock.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!responsiveseasonswebcomponents)"
+    ],
+    "collectCoverageFrom" : ["src/**/*.{js,jsx}"]
+}
