@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField renders correctly when all props are provided 1`] = `
+<input
+  className="sample"
+  name="textfield"
+  onChange={[Function]}
+  placeholder="This is placeholder text"
+  type="text"
+/>
+`;
+
+exports[`TextField renders correctly when only required props are provided 1`] = `
+<input
+  className=""
+  name={undefined}
+  onChange={[Function]}
+  placeholder={undefined}
+  type="text"
+/>
+`;
