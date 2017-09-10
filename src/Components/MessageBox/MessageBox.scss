@@ -1,0 +1,47 @@
+.messabeBox {
+  transition: transform .3s ease-out;
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  z-index: 99;
+  width: 550px;
+
+  &.show {
+    transform: translate(-50%, 100px);
+  }
+
+  &.hide {
+    transform: translate(-50%, -100px);
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: inherit;
+    opacity: .2;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  &.error {
+    background: red;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+  }
+
+  &.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+}

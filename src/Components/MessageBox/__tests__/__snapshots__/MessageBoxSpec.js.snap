@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBox renders correctly when value of showMessageBox is true 1`] = `
+<div
+  className="alert success show"
+>
+  <div>
+    This is message Box
+    <input
+      className="button close-btn"
+      name={undefined}
+      onClick={[Function]}
+      title="close"
+      type="button"
+      value="x"
+    />
+  </div>
+</div>
+`;
+
+exports[`MessageBox should have class error when type props is error 1`] = `
+<div
+  className="alert error show"
+>
+  <div>
+    This is message Box
+    <input
+      className="button close-btn"
+      name={undefined}
+      onClick={[Function]}
+      title="close"
+      type="button"
+      value="x"
+    />
+  </div>
+</div>
+`;
+
+exports[`MessageBox should not render when value of showMessageBox is not provided or false  1`] = `
+<div
+  className="alert success hide"
+/>
+`;
