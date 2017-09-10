@@ -40,7 +40,12 @@ export default class App extends Component {
         try{
             document.querySelector('.result-container textarea').value = parser.parse(sampleString)
         } catch(err){
-            console.log("err", err);
+            this.setState({
+                showMessageBox: true,
+                type: "error",
+                title : "You have entered some text which is not supported \n" + err.toString()
+            });
+            console.log("ddff", err)
         }
     }
 

@@ -86,7 +86,7 @@ tagName "tagName"
  = text:[a-z0-9]+ {return text.join("")}
  
 content "content"
- = [a-zA-Z0-9{}()=\?_\/\\:\!\-\;\$\#\&\*\@\|\\.\\,\n\\'\\" ]+
+ = [a-zA-Z0-9{}()=\?_\/\\:\!\-\;\$\%\#\&\*\@\|\\.\\,\n\\'\\" ]+
  
 _ "whitespace"
  = [ \t\n\r]* {return ""}
