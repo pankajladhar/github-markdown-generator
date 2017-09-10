@@ -3,6 +3,7 @@
 exports[`Button renders correctly when only all props are provided 1`] = `
 <button
   className="button sample"
+  disabled={false}
   name="name"
   onClick={[Function]}
   title="Button"
@@ -14,6 +15,19 @@ exports[`Button renders correctly when only all props are provided 1`] = `
 exports[`Button renders correctly when only required props are provided 1`] = `
 <button
   className="button"
+  disabled={false}
+  name={undefined}
+  onClick={[Function]}
+  title="Button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should have disabled property if value disabled props is true  1`] = `
+<button
+  className="button"
+  disabled={true}
   name={undefined}
   onClick={[Function]}
   title="Button"
@@ -25,6 +39,7 @@ exports[`Button renders correctly when only required props are provided 1`] = `
 exports[`Button should not render text if icon props is provided 1`] = `
 <button
   className="button"
+  disabled={false}
   name={undefined}
   onClick={[Function]}
   title="Button"

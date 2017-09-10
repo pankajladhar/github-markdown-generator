@@ -47,11 +47,21 @@ describe('Button', ()=>{
         buttonProps.name="name";
         buttonProps.handleClick = mockHandleClick;
         
-        const button = shallow(
+        let button = shallow(
             <Button {...buttonProps}/>
         );
 
         button.simulate('click');
         expect(mockHandleClick).toHaveBeenCalled();
+    });
+
+    it('should have disabled property if value disabled props is true ', ()=>{
+
+        buttonProps.disabled=true;
+        let tree = renderer.create(
+            <Button  {...buttonProps}/>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+        expect(tree.props.disabled).toBeTruthy();
     })
 });

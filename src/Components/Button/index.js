@@ -4,6 +4,7 @@ import './Button.scss';
 
 const propTypes = {
     className: PropTypes.string,
+    disabled: PropTypes.bool,
     icon: PropTypes.string,
     name: PropTypes.string,
     handleClick: PropTypes.func.isRequired,
@@ -11,7 +12,8 @@ const propTypes = {
     value: PropTypes.string.isRequired
 }
 const defaultProps = {
-    className: ""
+    className: "",
+    disabled: false
 }
 
 export default class Button extends PureComponent {
@@ -22,6 +24,7 @@ export default class Button extends PureComponent {
                     name={this.props.name} 
                     onClick={this.props.handleClick} 
                     title={this.props.title}
+                    disabled={this.props.disabled}
                 >
                 {this.props.icon && <i className={`fa ${this.props.icon}`} aria-hidden="true"></i>}
                 {!this.props.icon && this.props.value}

@@ -16,7 +16,8 @@ export default class App extends Component {
         this.state = {
             showMessageBox: false,
             title: "",
-            type: "success"
+            type: "success",
+            btnDisabled: true
         };
         this.convertIntoMarkdown = this.convertIntoMarkdown.bind(this);
         this.handleMesaageBoxClose = this.handleMesaageBoxClose.bind(this);
@@ -109,6 +110,7 @@ export default class App extends Component {
                                 className="action"
                                 title="Copy Generated Markdown"
                                 value="Copy Generated Markdown"
+                                disabled={this.state.btnDisabled}
                                 handleClick={this.onCopyClick}
                             />
                             <Button
@@ -116,6 +118,7 @@ export default class App extends Component {
                                 className="action"
                                 title="Download as README.md file"
                                 value="Download as README.md file"
+                                disabled={this.state.btnDisabled}
                                 handleClick={this.onDownloadFileClick}
                             />
                         </div>

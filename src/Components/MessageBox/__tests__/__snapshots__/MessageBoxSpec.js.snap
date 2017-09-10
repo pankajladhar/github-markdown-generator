@@ -8,6 +8,7 @@ exports[`MessageBox renders correctly when value of showMessageBox is true 1`] =
     This is message Box
     <button
       className="button close-btn"
+      disabled={false}
       name={undefined}
       onClick={[Function]}
       title="close"
@@ -26,6 +27,7 @@ exports[`MessageBox should have class error when type props is error 1`] = `
     This is message Box
     <button
       className="button close-btn"
+      disabled={false}
       name={undefined}
       onClick={[Function]}
       title="close"
