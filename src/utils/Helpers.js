@@ -30,7 +30,14 @@ const downloadAsFile = (data, filename) =>{
     document.body.appendChild(tempLink);
     tempLink.click();
     document.body.removeChild(tempLink);
-
 }
 
-export { execute, ensureHTTP, sanitizeHTMLString, downloadAsFile }
+const pastewithOutStyle = (editor) =>{
+    editor.addEventListener("paste", function(e) {
+        e.preventDefault();
+        var text = e.clipboardData.getData("text/plain");
+        document.execCommand("insertHTML", false, text);
+    })
+}
+
+export { execute, ensureHTTP, sanitizeHTMLString, downloadAsFile, pastewithOutStyle }

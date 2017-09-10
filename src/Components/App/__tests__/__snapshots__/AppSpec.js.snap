@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
+exports[`App renders correctly 1`] = `
 <div>
   <div
     className="container"
@@ -11,78 +11,127 @@ exports[`Button renders correctly 1`] = `
       <div
         className="actionbar-container"
       >
-        <input
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Heading 1"
-          type="button"
-          value="H1"
-        />
-        <input
+        >
+          H1
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Heading 2"
-          type="button"
-          value="H2"
-        />
-        <input
+        >
+          H2
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Heading 3"
-          type="button"
-          value="H3"
-        />
-        <input
+        >
+          H3
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Bold"
-          type="button"
-          value="B"
-        />
-        <input
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-bold"
+          />
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Italic"
-          type="button"
-          value="I"
-        />
-        <input
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-italic"
+          />
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Unordered List"
-          type="button"
-          value="UL"
-        />
-        <input
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-list-ul"
+          />
+        </button>
+        <button
           className="button action"
+          disabled={false}
           name={undefined}
           onClick={[Function]}
           title="Ordered List"
-          type="button"
-          value="OL"
-        />
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-list-ol"
+          />
+        </button>
       </div>
       <div
         className="editor markdown-body"
         contentEditable="true"
         id="editor"
-        onInput={undefined}
+        onInput={[Function]}
       />
     </div>
     <div
       className="result-container"
     >
+      <div
+        className="btn-wrapper"
+      >
+        <button
+          className="button action"
+          disabled={true}
+          name={undefined}
+          onClick={[Function]}
+          title="Copy Generated Markdown"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-copy"
+          />
+        </button>
+        <button
+          className="button action"
+          disabled={true}
+          name={undefined}
+          onClick={[Function]}
+          title="Download as README.md file"
+        >
+          <i
+            aria-hidden="true"
+            className="fa fa-download"
+          />
+        </button>
+      </div>
       <textarea
-        className="editor1"
         readOnly={true}
       />
     </div>
+    <div
+      className="messageBox success hide"
+    />
   </div>
 </div>
 `;

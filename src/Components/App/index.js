@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActionData } from './../../utils/ActionData';
 import parser from './../../utils/parser';
-import { execute, sanitizeHTMLString, downloadAsFile } from './../../utils/Helpers';
+import { execute, sanitizeHTMLString, downloadAsFile, pastewithOutStyle } from './../../utils/Helpers';
 import ActionBar from './../ActionBar';
 import Button from './../Button';
 import MessageBox from './../MessageBox';
@@ -20,51 +20,46 @@ export default class App extends Component {
             btnDisabled: true
         };
         this.convertIntoMarkdown = this.convertIntoMarkdown.bind(this);
-        this.handleMesaageBoxClose = this.handleMesaageBoxClose.bind(this);
+        this.handleMessageBoxClose = this.handleMessageBoxClose.bind(this);
         this.onCopyClick = this.onCopyClick.bind(this);
         this.onDownloadFileClick = this.onDownloadFileClick.bind(this);
     }
 
     componentDidMount() {
         this.textEditor.focus();
-        editor.addEventListener("paste", function(e) {
-            e.preventDefault();
-            var text = e.clipboardData.getData("text/plain");
-            document.execCommand("insertHTML", false, text);
-        })
+        pastewithOutStyle(this.textEditor)
     }
 
     convertIntoMarkdown() {
-        let sampleString = sanitizeHTMLString(document.getElementById('editor').innerHTML);
+        let sampleString = sanitizeHTMLString(this.textEditor.innerHTML);
         sampleString.length ? this.setState({ btnDisabled : false }) : this.setState({ btnDisabled : true })
         try{
-            document.querySelector('.result-container textarea').value = parser.parse(sampleString)
-        } catch(err){
+            this.resultContainer.value = parser.parse(sampleString)
+        } catch(err){   
             this.setState({
                 showMessageBox: true,
                 type: "error",
                 title : "You have entered some text which is not supported \n" + err.toString()
             });
-            console.log("ddff", err)
         }
     }
 
-    handleMesaageBoxClose() {
+    handleMessageBoxClose() {
         this.setState({ showMessageBox: false })
     }
 
     onDownloadFileClick() {
-        downloadAsFile(document.querySelector('.result-container textarea').value, 'README.md');
+        downloadAsFile(this.resultContainer.value, 'README.md');
     }
 
     onCopyClick() {
-        document.querySelector('.result-container textarea').select();
+        this.resultContainer.select();
         try {
             var successful = document.execCommand('copy');
             if(successful){
                 this.setState({
                     showMessageBox: true,
-                    type:  successful ? "success" : "error",
+                    type:  "success",
                     title : 'Copied Successfully',
                 })
             }
@@ -116,7 +111,7 @@ export default class App extends Component {
                                 handleClick={this.onDownloadFileClick}
                             />
                         </div>
-                        <textarea readOnly></textarea>
+                        <textarea ref={(result) => { this.resultContainer = result }} readOnly></textarea>
                     </div>
                     <MessageBox 
                         type={this.state.type}
@@ -126,7 +121,7 @@ export default class App extends Component {
                             {
                                 value:"x",
                                 title:"Close button",
-                                handleClick: this.handleMesaageBoxClose
+                                handleClick: this.handleMessageBoxClose
                             }
                         }
                     />
