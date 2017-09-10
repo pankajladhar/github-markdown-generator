@@ -19,22 +19,26 @@ const ActionData = [
     {
         value: 'B',
         title: 'Bold',
+        icon:'fa-bold',
         handleClick: () => execute('bold')
     },
     {
         value: 'I',
         title: 'Italic',
+        icon:'fa-italic',
         handleClick: () => execute('italic')
     },
     {
         value: 'UL',
         title: 'Unordered List',
+        icon:'fa-list-ul',
         handleClick: () => execute('insertUnorderedList')
     },
     {
 
         value: 'OL',
         title: 'Ordered List',
+        icon:'fa-list-ol',
         handleClick: () => execute('insertOrderedList')
     }
     // {

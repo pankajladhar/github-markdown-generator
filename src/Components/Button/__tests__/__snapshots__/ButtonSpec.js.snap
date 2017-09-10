@@ -1,23 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button renders correctly when only all props are provided 1`] = `
-<input
+<button
   className="button sample"
   name="name"
   onClick={[Function]}
   title="Button"
-  type="button"
-  value="Button"
-/>
+>
+  Button
+</button>
 `;
 
 exports[`Button renders correctly when only required props are provided 1`] = `
-<input
+<button
   className="button"
   name={undefined}
   onClick={[Function]}
   title="Button"
-  type="button"
-  value="Button"
-/>
+>
+  Button
+</button>
+`;
+
+exports[`Button should not render text if icon props is provided 1`] = `
+<button
+  className="button"
+  name={undefined}
+  onClick={[Function]}
+  title="Button"
+>
+  <i
+    aria-hidden="true"
+    className="fa fa-bold"
+  />
+</button>
 `;

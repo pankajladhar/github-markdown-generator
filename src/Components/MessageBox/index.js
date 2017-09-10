@@ -29,7 +29,7 @@ export default class MessageBox extends PureComponent {
 
     getMessageBoxClasses(){
         let isShowing = this.props.showMessageBox == true ? "show" : "hide";
-        return `alert ${this.props.type} ${isShowing}`;
+        return `messageBox ${this.props.type} ${isShowing}`;
     }
 
     render() {

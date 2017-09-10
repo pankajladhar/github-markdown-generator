@@ -4,6 +4,7 @@ import './Button.scss';
 
 const propTypes = {
     className: PropTypes.string,
+    icon: PropTypes.string,
     name: PropTypes.string,
     handleClick: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
@@ -16,12 +17,15 @@ const defaultProps = {
 export default class Button extends PureComponent {
     render() {
         return (
-                <input type="button"
+                <button
                     className={`button ${this.props.className}`.trim()}
                     name={this.props.name} 
                     onClick={this.props.handleClick} 
                     title={this.props.title}
-                    value={this.props.value} />
+                >
+                {this.props.icon && <i className={`fa ${this.props.icon}`} aria-hidden="true"></i>}
+                {!this.props.icon && this.props.value}
+                </button>
         );
     }
 }

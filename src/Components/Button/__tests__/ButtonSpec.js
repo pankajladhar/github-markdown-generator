@@ -30,6 +30,15 @@ describe('Button', ()=>{
         expect(tree).toMatchSnapshot();
     });
 
+    it('should not render text if icon props is provided', ()=>{
+        buttonProps.icon = "fa-bold"
+        let tree = renderer.create(
+            <Button  {...buttonProps}/>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+        expect(tree.props.value).toBeUndefined();
+    })
+
     it('should call the provided click handler', ()=>{
         
         let mockHandleClick = jest.fn();

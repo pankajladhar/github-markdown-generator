@@ -22,6 +22,7 @@ export default class ActionBar extends PureComponent {
                                 handleClick={action.handleClick} 
                                 value={action.value}
                                 title={action.title}
+                                icon={action.icon}
                             />
                 })}
             </div>

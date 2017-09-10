@@ -1,4 +1,4 @@
-.messabeBox {
+.messageBox {
   transition: transform .3s ease-out;
   position: fixed;
   top: -100px;
@@ -30,6 +30,13 @@
     opacity: .2;
     display: inline-block;
     line-height: 1;
+    box-shadow: none;
+    background: inherit;
+    border: none;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &.error {

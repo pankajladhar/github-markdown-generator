@@ -9,7 +9,7 @@
     "start": "webpack-dev-server",
     "dev": "webpack-dashboard -t -- webpack-dev-server",
     "prod": "npm run clean && NODE_ENV=production webpack -p",
-    "test": "jest --config jest.json --coverage",
+    "test": "jest --config jest.json",
     "test:watch": "jest --config jest.json --watch",
     "lint:style": "./node_modules/.bin/stylelint **/*.scss --config .stylelintrc.json",
     "lint:es": "./node_modules/.bin/eslint ./src/**/*.js",
