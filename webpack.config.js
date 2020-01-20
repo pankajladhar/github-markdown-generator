@@ -50,6 +50,7 @@ module.exports = {
         path: buildFolder,
         filename: 'static/js/app.[hash].bundle.js'
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {

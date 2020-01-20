@@ -17,6 +17,11 @@ const ActionData = [
         handleClick: () => execute('formatBlock', '<H3>')
     },
     {
+        value: 'hr',
+        title: 'Horizontal Line',
+        handleClick: () => execute('insertHorizontalRule')
+    },
+    {
         value: 'B',
         title: 'Bold',
         icon:'fa-bold',
@@ -40,12 +45,12 @@ const ActionData = [
         title: 'Ordered List',
         icon:'fa-list-ol',
         handleClick: () => execute('insertOrderedList')
+    },
+    {
+        value: 'T',
+        title: 'Paragraph',
+        handleClick: () => execute('insertHTML', '<table><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td></tr></table>')
     }
-    // {
-    //     value: 'P',
-    //     title: 'Paragraph',
-    //     handleClick: () => execute('formatBlock', '<P>')
-    // }
 ]
 
 export { ActionData }

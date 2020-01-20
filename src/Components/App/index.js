@@ -5,9 +5,8 @@ import { execute, sanitizeHTMLString, downloadAsFile, pastewithOutStyle } from '
 import ActionBar from './../ActionBar';
 import Button from './../Button';
 import MessageBox from './../MessageBox';
-
-
 import './App.scss';
+import { convert } from './../../utils/Formatter'
 
 export default class App extends Component {
     constructor(props) {
@@ -33,7 +32,8 @@ export default class App extends Component {
     convertIntoMarkdown() {
         let sampleString = sanitizeHTMLString(this.textEditor.innerHTML);
         sampleString.length ? this.setState({ btnDisabled : false }) : this.setState({ btnDisabled : true })
-        try{
+        this.resultContainer.value = convert(sampleString)
+        /*try{
             this.resultContainer.value = parser.parse(sampleString)
         } catch(err){   
             this.setState({
@@ -41,7 +41,7 @@ export default class App extends Component {
                 type: "error",
                 title : "You have entered some text which is not supported \n" + err.toString()
             });
-        }
+        }*/
     }
 
     handleMessageBoxClose() {
