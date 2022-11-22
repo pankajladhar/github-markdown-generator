@@ -57,7 +57,7 @@
     "stylelint-config-standard": "17.0.0",
     "stylelint-scss": "2.1.0",
     "webpack": "^2.6.1",
-    "webpack-dashboard": "1.0.0-5",
+    "webpack-dashboard": "3.3.7",
     "webpack-dev-server": "2.5.1"
   }
 }
